@@ -1,0 +1,15 @@
+﻿
+
+
+<form [formGroup]="transactionForm" (ngSubmit)="submitTransaction()">
+  <div>
+    <label for="creditAmount">Credit Amount</label>
+    <input type="number" id="creditAmount" formControlName="creditAmount">
+    <div *ngIf="creditAmount.invalid && (creditAmount.dirty || creditAmount.touched)">
+      <div *ngIf="creditAmount.errors.required">Credit Amount is required.</div>
+      <div *ngIf="creditAmount.errors.maxCreditExceeded">Your daily credit limit is exceeded.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="transactionForm.invalid">Submit</button>
+</form>
