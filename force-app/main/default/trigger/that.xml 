@@ -1,0 +1,44 @@
+
+<trigger>
+  <name>UserAuthenticationTrigger</name>
+  <event>LoginAttemptEvent</event>
+  <conditions>
+    <condition>
+      <type>Authentication</type>
+      <parameters>
+        <parameter>
+          <name>username</name>
+          <value>{username}</value>
+        </parameter>
+        <parameter>
+          <name>password</name>
+          <value>{password}</value>
+        </parameter>
+      </parameters>
+    </condition>
+  </conditions>
+  <actions>
+    <action>
+      <type>AuthenticateUserAction</type>
+      <parameters>
+        <parameter>
+          <name>username</name>
+          <value>{username}</value>
+        </parameter>
+        <parameter>
+          <name>password</name>
+          <value>{password}</value>
+        </parameter>
+      </parameters>
+    </action>
+    <action>
+      <type>RedirectAction</type>
+      <parameters>
+        <parameter>
+          <name>url</name>
+          <value>/dashboard</value>
+        </parameter>
+      </parameters>
+    </action>
+  </actions>
+</trigger>
